@@ -64,7 +64,8 @@ def upload_file():
 
             if file:
 
-                filename = secure_filename(file.filename)
+                filetimestamp = "%i%i%i%i%i" % now.timetuple()[:5]
+                filename = "%s%s" % (filetimestamp, secure_filename(file.filename))
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(filepath)
                 
