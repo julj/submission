@@ -92,7 +92,7 @@ def upload_file():
 def get_scores(filename, competition_id):
     "Returns (preview_score, score)"
 
-    regex = r'(.+),(\d+\.\d+|\d+)'
+    regex = r'(.+),([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)'
 
     # parse files
     predictions = np.fromregex(filename, regex, [('id', 'S128'), ('v0', np.float32)])
